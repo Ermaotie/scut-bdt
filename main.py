@@ -16,7 +16,14 @@ def subscribe():
 @robot.text
 def sub(message):
     text = message.content
-    res = checkout(text)
+    if "添加关键词" in text:
+        text = text.split()
+        try:
+            res = insertKeyword(text[1],text[2])
+        except:
+            return "格式有误"
+    else:
+        res = checkout(text)
     return res
 
 @robot.subscribe
