@@ -26,6 +26,11 @@ def sub(message):
                 media_id = robot.client.upload_media("image", open(r"./demo.jpg", "rb"))['media_id']
                 text[3] = media_id
                 os.remove(r"./demo.jpg")
+            elif text[1] == "推文":
+                request.urlretrieve(text[5], r"./demo.jpg")
+                media_id = robot.client.upload_media("image", open(r"./demo.jpg", "rb"))['media_id']
+                text[5] = media_id
+                os.remove(r"./demo.jpg")
             res = insertKeyword(text)
         except:
             return "格式有误"
