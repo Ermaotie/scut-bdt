@@ -1,12 +1,12 @@
 #coding=utf-8
+
 import werobot
 from function import *
-
+from werobot.replies import ArticlesReply, Article
 
 robot = werobot.WeRoBot(token='tokenhere')
 robot.config["APP_ID"] = "wx7407f5c28abc23c0"
 robot.config["APP_SECRET"] = "0b0e1bf34d4253ff1e550830da0818f8"
-
 
 @robot.filter('订阅通知')
 def subscribe():
@@ -19,7 +19,7 @@ def sub(message):
     if "添加关键词" in text:
         text = text.split()
         try:
-            res = insertKeyword(text[1],text[2])
+            res = insertKeyword(text)
         except:
             return "格式有误"
     else:
