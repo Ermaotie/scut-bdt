@@ -94,10 +94,15 @@ def checkout(text,message):
 
 def insertKeyword(item):
     types = {
-        "text": insertText(item),
-        "img": insertImg(item),
-        "article": insertArticle(item),
+        "text": insertText,
+        "img": insertImg,
+        "article": insertArticle,
     }
-    return "添加成功"
+    method = types.get(item[1])
+    if method:
+        method(item)
+        return "添加成功"
+    else:
+        return "添加失败"
 
 
