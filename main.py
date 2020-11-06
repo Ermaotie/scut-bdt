@@ -2,10 +2,13 @@
 
 import werobot
 from function import *
+from urllib import request
+import os
 
 robot = werobot.WeRoBot(token='tokenhere')
 robot.config["APP_ID"] = "wx7407f5c28abc23c0"
 robot.config["APP_SECRET"] = "0b0e1bf34d4253ff1e550830da0818f8"
+
 
 @robot.filter('订阅通知')
 def subscribe():
@@ -18,6 +21,11 @@ def sub(message):
     if "添加关键词" in text:
         text = text.split()
         try:
+            if text[1]=="图片":
+                request.urlretrieve(text[3], r"./demo.jpg")
+                media_id = robot.client.upload_media("image", open(r"./demo.jpg", "rb"))['media_id']
+                text[3] = media_id
+                os.remove(r"./demo.jpg")
             res = insertKeyword(text)
         except:
             return "格式有误"
