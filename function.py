@@ -51,25 +51,28 @@ def TextReturn(key,message):
 
 def insertText(item):
     doc ={
-        "keyword": item[1],
-        "content": item[2]
+        "type":"text",
+        "keyword": item[2],
+        "content": item[3]
     }
     collection.insert_one(doc)
 
 def insertImg(item):
     doc = {
-        "keyword": item[1],
-        "media_id": item[2]
+        "type": "img",
+        "keyword": item[2],
+        "media_id": item[3]
     }
     collection.insert_one(doc)
 
 def insertArticle(item):
     doc = {
-        "keyword": item[1],
-        "title": item[2],
-        "description": item[3],
-        "img": item[4],
-        "url": item[5]
+        "type": "article",
+        "keyword": item[2],
+        "title": item[3],
+        "description": item[4],
+        "img": item[5],
+        "url": item[6]
     }
     collection.insert_one(doc)
 
@@ -94,9 +97,9 @@ def checkout(text,message):
 
 def insertKeyword(item):
     types = {
-        "text": insertText,
-        "img": insertImg,
-        "article": insertArticle,
+        "文本": insertText,
+        "图片": insertImg,
+        "推文": insertArticle,
     }
     method = types.get(item[1])
     if method:
@@ -104,5 +107,6 @@ def insertKeyword(item):
         return "添加成功"
     else:
         return "添加失败"
+
 
 

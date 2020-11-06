@@ -2,7 +2,6 @@
 
 import werobot
 from function import *
-from werobot.replies import ArticlesReply, Article
 
 robot = werobot.WeRoBot(token='tokenhere')
 robot.config["APP_ID"] = "wx7407f5c28abc23c0"
@@ -23,7 +22,7 @@ def sub(message):
         except:
             return "格式有误"
     else:
-        res = checkout(text)
+        res = checkout(text,message)
     return res
 
 @robot.subscribe
