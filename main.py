@@ -30,6 +30,12 @@ def sub(message):
             res = insertKeyword(text)
         except:
             return "格式有误"
+    elif "取消关键词" in text:
+        text = text.split()
+        try:
+            res = cancelKeyword(text[1])
+        except:
+            res = "取消失败"
     else:
         res = checkout(text,message)
     return res

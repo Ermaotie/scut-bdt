@@ -109,4 +109,8 @@ def insertKeyword(item):
         return "添加失败"
 
 
+def cancelKeyword(keyword):
+    collection.delete_many(
+        {"keyword": keyword}
+    )
 
