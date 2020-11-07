@@ -6,9 +6,10 @@ from urllib import request
 import os
 
 robot = werobot.WeRoBot(token='tokenhere')
-robot.config["APP_ID"] = "wx7407f5c28abc23c0"
-robot.config["APP_SECRET"] = "0b0e1bf34d4253ff1e550830da0818f8"
-
+robot.config["APP_ID"] = "wxccd39fd7bd00f08d"
+robot.config["APP_SECRET"] = "8794656c2edb03f116fd1c49c394a1ff"
+# robot.config["APP_ID"] = "wx7407f5c28abc23c0"
+# robot.config["APP_SECRET"] = "0b0e1bf34d4253ff1e550830da0818f8"
 
 @robot.filter('订阅通知')
 def subscribe():
@@ -35,7 +36,7 @@ def sub(message):
 
 @robot.subscribe
 def subscribe():
-    message = '欢迎关注二茂铁Fe，如需订阅华工通知请发送\n订阅通知\n于本公众号。\n操作流程较长，若遇到问题请访问：\n https://1b.mk/2020/08/08/subscribe/'
+    message = '欢迎关注华工包打听'
     return message
 
 

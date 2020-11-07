@@ -90,7 +90,7 @@ def switch(key,message):
 def checkout(text,message):
     item = collection.find_one({'keyword': text})
     if item is None:
-        return "没有该关键词"
+        return "当你收到这段话时，说明你回复的关键词是不准确的（关键词回复是公众号后台设置对应规则，准确回复关键词才能触发自动回复） 这是小包公众号哦，不能进行实时问答！ 你可以回复：近期资料 进群请加：加包包微信ID:scut_know_all 进群请加：加包包微信ID:scut_know_all 进群请加：加包包微信ID:scut_know_all 校园资讯，问题答疑，感情树洞， 万事皆可找包包微信） 进入华工社群，探索华园更多玩法: 黑市，学习群，二手交易，考试资料......"
     else:
         return switch(item,message)
 
